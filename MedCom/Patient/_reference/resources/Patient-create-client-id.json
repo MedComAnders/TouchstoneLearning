@@ -1,0 +1,103 @@
+{
+  "resourceType": "Patient",
+  "id": "${CD12}-${D6}",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr><td>Name</td><td>Peter James <b>Chalmers</b> (&quot;Jim&quot;)</td></tr><tr><td>Address</td><td>534 Erewhon, Pleasantville, Vic, 3999</td></tr><tr><td>Contacts</td><td>Home: unknown. Work: (03) 5555 6473</td></tr><tr><td>Id</td><td>MRN: 12345 (Acme Healthcare)</td></tr></tbody></table>    </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "${CD12}${D6}",
+      "period": {
+        "start": "2001-05-06"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Chalmers${C6}",
+      "given": [
+        "Peter${C6}",
+        "James${C6}"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jim${C6}"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(0${D1}) ${D4} ${D4}",
+      "use": "work"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-12-25",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "${D3} Erewhon${C6} St"
+      ],
+      "city": "PleasantVille${C6}",
+      "state": "Vic${C6}",
+      "postalCode": "3999"
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0131",
+              "code": "CP"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "du Marché",
+        "given": [
+          "Bénédicte"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+33 (237) 998327"
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2012"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/${referenceOrganizationResourceId}"
+  }
+}

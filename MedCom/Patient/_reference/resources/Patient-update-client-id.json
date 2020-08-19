@@ -1,0 +1,81 @@
+{
+  "resourceType" : "Patient",
+  "id" : "${createResourceId}",
+  "meta" : {
+    "security" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+      "code" : "HTEST",
+      "display" : "test health data"
+    } ]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Touchstone Test Data - Patient: Michael George Feelsgood</p></div>"
+  },
+  "identifier" : [ {
+    "use" : "usual",
+    "type" : {
+      "coding" : [ {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "MR"
+      } ]
+    },
+    "system" : "urn:oid:1.2.36.146.595.217.0.1",
+    "value" : "${D10}-${D3}",
+    "period" : {
+      "start" : "${CURRENTDATE,y,-10}"
+    },
+    "assigner" : {
+      "display" : "Acme Healthcare"
+    }
+  } ],
+  "active" : true,
+  "name" : [ {
+    "use" : "official",
+    "family" : "Feelsgood${C7}",
+    "given" : [ "Michael${C7}", "George" ]
+  } ],
+  "telecom" : [ {
+    "system" : "phone",
+    "value" : "(${D3}) ${D3} ${D4}",
+    "use" : "home"
+  } ],
+  "gender" : "male",
+  "birthDate" : "${CURRENTDATE,y,-35}",
+  "deceasedBoolean" : false,
+  "address" : [ {
+    "use" : "home",
+    "line" : [ "${D5} Davis Ford Rd" ],
+    "city" : "Manassas",
+    "state" : "VA",
+    "postalCode" : "20110"
+  } ],
+  "contact" : [ {
+    "relationship" : [ {
+      "coding" : [ {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0131",
+        "code" : "N"
+      } ]
+    } ],
+    "name" : {
+      "family" : "Feelsgood${C7}",
+      "given" : [ "Margaret" ]
+    },
+    "telecom" : [ {
+      "system" : "phone",
+      "value" : "(${D3}) ${D3} ${D4}",
+      "use" : "home"
+    } ],
+    "address" : {
+      "use" : "home",
+      "line" : [ "${D5} Davis Ford Rd" ],
+      "city" : "Manassas",
+      "state" : "VA",
+      "postalCode" : "20110"
+    },
+    "gender" : "female"
+  } ],
+  "managingOrganization" : {
+    "reference" : "Organization/${referenceOrganizationResourceId}"
+  }
+}

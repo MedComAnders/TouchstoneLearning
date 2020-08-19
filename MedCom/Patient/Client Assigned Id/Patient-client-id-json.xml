@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">  
+    <id value="Patient-client-id-json"/>  
+    <meta> 
+        <profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/> 
+    </meta>  
+    <text> 
+        <status value="generated"/>  
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>FHIR Server Patient Basic Operation Tests - JSON - Client Assigned Resource Id</p>
+        </div> 
+    </text>  
+    <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
+        <extension url="rulesetId"> 
+            <valueId value="ruleset-versioning-headers"/> 
+        </extension>  
+        <extension url="path"> 
+            <valueString value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertETagIfSupported"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertLastModifiedIfSupported"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension> 
+    </extension>  
+    <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
+        <extension url="rulesetId"> 
+            <valueId value="ruleset-createok-headers-body"/> 
+        </extension>  
+        <extension url="path"> 
+            <valueString value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeCharsetIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResourceTypesIfBody"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient,OperationOutcome"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfOperationOutcome"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="operationoutcome-profile"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfResource"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="resource-profile"/> 
+                </extension> 
+            </extension> 
+        </extension> 
+    </extension>  
+    <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
+        <extension url="rulesetId"> 
+            <valueId value="ruleset-updateok-headers-body"/> 
+        </extension>  
+        <extension url="path"> 
+            <valueString value="/FHIRCommon/_reference/ruleset/RuleSet-UpdateOkHeadersBody-Groovy.xml"/> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeCharsetIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResourceTypesIfBody"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient,OperationOutcome"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfOperationOutcome"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="operationoutcome-profile"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfResource"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="resource-profile"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertVersionIdIfResourceAndSupported"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resourceOperator"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="equals"/> 
+                </extension> 
+            </extension> 
+        </extension> 
+    </extension>  
+    <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
+        <extension url="rulesetId"> 
+            <valueId value="ruleset-vreadok-headers-body-if-versioning"/> 
+        </extension>  
+        <extension url="path"> 
+            <valueString value="/FHIRCommon/_reference/ruleset/RuleSet-VReadOkHeadersBodyIfVersioning-Groovy.xml"/> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResponseCodeOkIfVersioning"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResponseCodeNotFoundIfNotVersioning"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertETagIfSupported"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertLastModifiedIfSupported"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeMimeTypeIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeCharsetIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResourceTypesIfBody"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient,OperationOutcome"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfOperationOutcome"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="operationoutcome-profile"/> 
+                </extension> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfResource"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="resource"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="Patient"/> 
+                </extension> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="resource-profile"/> 
+                </extension> 
+            </extension> 
+        </extension> 
+    </extension>  
+    <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
+        <extension url="rulesetId"> 
+            <valueId value="ruleset-deletevalid-headers-body"/> 
+        </extension>  
+        <extension url="path"> 
+            <valueString value="/FHIRCommon/_reference/ruleset/RuleSet-DeleteValidHeadersBody-Groovy.xml"/> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResponseCodeOkIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertResponseCodeNoContentIfNoBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertETagIfSupported"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertContentTypeCharsetIfBody"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertOperationOutcomeIfError"/> 
+            </extension> 
+        </extension>  
+        <extension url="rule"> 
+            <extension url="ruleId"> 
+                <valueId value="assertProfileIfOperationOutcome"/> 
+            </extension>  
+            <extension url="param"> 
+                <extension url="name"> 
+                    <valueString value="validateProfileId"/> 
+                </extension>  
+                <extension url="value"> 
+                    <valueString value="operationoutcome-profile"/> 
+                </extension> 
+            </extension> 
+        </extension> 
+    </extension>  
+    <url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/Patient-client-id-json"/>  
+    <name value="Patient_client_id_json"/>  
+    <title value="FHIR Server Patient Basic Operation Tests - JSON - Client Assigned Resource Id"/>  
+    <status value="active"/>  
+    <date value="2020-02-02"/>  
+    <publisher value="AEGIS.net, Inc."/>  
+    <contact> 
+        <name value="Touchstone Support"/>  
+        <telecom> 
+            <system value="email"/>  
+            <value value="Touchstone_Support@aegis.net"/>  
+            <use value="work"/> 
+        </telecom> 
+    </contact>  
+    <description value="FHIR Server Patient Basic Operation Tests - JSON - Client Assigned Resource Id - Create, Delete, History, Read, Search, Update, Vread. Support for referenced resource type Organization Update, Delete and Search is also required."/>  
+    <copyright value="(c) AEGIS.net, Inc. 2019"/>  
+    <origin> 
+        <index value="1"/>  
+        <profile> 
+            <system value="http://hl7.org/fhir/testscript-profile-origin-types"/>  
+            <code value="FHIR-Client"/> 
+        </profile> 
+    </origin>  
+    <destination> 
+        <index value="1"/>  
+        <profile> 
+            <system value="http://hl7.org/fhir/testscript-profile-destination-types"/>  
+            <code value="FHIR-Server"/> 
+        </profile> 
+    </destination>  
+    <fixture id="resource-create"> 
+        <autocreate value="false"/>  
+        <autodelete value="false"/>  
+        <resource> 
+            <reference value="../_reference/resources/Patient-create-client-id.json"/> 
+        </resource> 
+    </fixture>  
+    <fixture id="resource-update"> 
+        <autocreate value="false"/>  
+        <autodelete value="false"/>  
+        <resource> 
+            <reference value="../_reference/resources/Patient-update-client-id.json"/> 
+        </resource> 
+    </fixture>  
+    <fixture id="reference-organization-create"> 
+        <autocreate value="false"/>  
+        <autodelete value="false"/>  
+        <resource> 
+            <reference value="../_reference/resources/Organization-create-client-id.json"/> 
+        </resource> 
+    </fixture>  
+    <profile id="bundle-profile"> 
+        <reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/> 
+    </profile>  
+    <profile id="operationoutcome-profile"> 
+        <reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/> 
+    </profile>  
+    <profile id="resource-profile"> 
+        <reference value="http://hl7.org/fhir/StructureDefinition/Patient"/> 
+    </profile>  
+    <variable> 
+        <name value="createResourceId"/>  
+        <path value=".id"/>  
+        <sourceId value="resource-create"/> 
+    </variable>  
+    <variable> 
+        <name value="createVersionId"/>  
+        <path value=".meta.versionId"/>  
+        <sourceId value="create-read-response"/> 
+    </variable>  
+    <variable> 
+        <name value="searchParamIdentifier"/>  
+        <path value=".identifier[0].value"/>  
+        <sourceId value="resource-create"/> 
+    </variable>  
+    <variable> 
+        <name value="referenceOrganizationResourceId"/>  
+        <path value=".id"/>  
+        <sourceId value="reference-organization-create"/> 
+    </variable>  
+    <setup> 
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="delete"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Delete operation to ensure the Patient does not exist on the server."/>  
+                <accept value="json"/>  
+                <contentType value="none"/>  
+                <encodeRequestUrl value="true"/>  
+                <params value="/${createResourceId}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is either 200(OK), 204(No Content) or 404(Not Found)."/>  
+                <operator value="in"/>  
+                <responseCode value="200,204,404"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="delete"/> 
+                </type>  
+                <resource value="Organization"/>  
+                <description value="Delete operation to ensure the referenced Organization does not exist on the server."/>  
+                <accept value="json"/>  
+                <encodeRequestUrl value="true"/>  
+                <params value="/${referenceOrganizationResourceId}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is either 200(OK), 204(No Content) or 404(Not Found)."/>  
+                <operator value="in"/>  
+                <responseCode value="200,204,404"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="updateCreate"/> 
+                </type>  
+                <resource value="Organization"/>  
+                <description value="Create the referenced Organization resource needed for referential integrity from the Patient."/>  
+                <accept value="json"/>  
+                <contentType value="json"/>  
+                <encodeRequestUrl value="true"/>  
+                <params value="/${referenceOrganizationResourceId}"/>  
+                <sourceId value="reference-organization-create"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>  
+                <operator value="in"/>  
+                <responseCode value="200,201"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </setup>  
+    <test id="Step1-CreateNewPatient"> 
+        <name value="Step1-CreateNewPatient"/>  
+        <description value="Create a new Patient in JSON format where the client assigns the resource id. The expected response code is 201 (Created) with a content of either the created Patient resource in JSON format, an OperationOutcome resource in JSON format or an empty payload."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="updateCreate"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Create Patient with client assigned resource id."/>  
+                <accept value="json"/>  
+                <contentType value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}"/>  
+                <sourceId value="resource-create"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 201(Created)."/>  
+                <direction value="response"/>  
+                <response value="created"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-versioning-headers"/> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>  
+                <direction value="response"/>  
+                <warningOnly value="true"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-createok-headers-body"/> 
+                    </extension>  
+                    <extension url="rule"> 
+                        <extension url="ruleId"> 
+                            <valueId value="assertContentTypeMimeTypeIfBody"/> 
+                        </extension>  
+                        <extension url="param"> 
+                            <extension url="name"> 
+                                <valueString value="headerExpectedValue"/> 
+                            </extension>  
+                            <extension url="value"> 
+                                <valueString value="application/fhir+json"/> 
+                            </extension> 
+                        </extension> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>  
+                <direction value="response"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step2-ReadPatient"> 
+        <name value="Step2-ReadPatient"/>  
+        <description value="Read the Patient in JSON format created in step 1. The expected response code is 200 (OK) with a content of the found Patient resource in JSON format."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="read"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Patient read operation with HTTP Header Accept set to JSON format."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}"/>  
+                <responseId value="create-read-response"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>  
+                <direction value="response"/>  
+                <response value="okay"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP Header Content-Type is present."/>  
+                <direction value="response"/>  
+                <headerField value="Content-Type"/>  
+                <operator value="notEmpty"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-versioning-headers"/> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>  
+                <direction value="response"/>  
+                <warningOnly value="true"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned resource type is Patient."/>  
+                <direction value="response"/>  
+                <resource value="Patient"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Validate that the returned resource conforms to the corresponding FHIR resource profile."/>  
+                <direction value="response"/>  
+                <validateProfileId value="resource-profile"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step3-UpdatePatient"> 
+        <name value="Step3-UpdatePatient"/>  
+        <description value="Update the Patient created in step 1 in JSON format. The expected response code is 200 (OK) with a content of either the updated Patient resource in JSON format, an OperationOutcome resource in JSON format or an empty payload."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="update"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Patient update operation with JSON content."/>  
+                <accept value="json"/>  
+                <contentType value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}"/>  
+                <sourceId value="resource-update"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>  
+                <direction value="response"/>  
+                <responseCode value="200"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-versioning-headers"/> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>  
+                <direction value="response"/>  
+                <warningOnly value="true"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-updateok-headers-body"/> 
+                    </extension>  
+                    <extension url="rule"> 
+                        <extension url="ruleId"> 
+                            <valueId value="assertContentTypeMimeTypeIfBody"/> 
+                        </extension>  
+                        <extension url="param"> 
+                            <extension url="name"> 
+                                <valueString value="headerExpectedValue"/> 
+                            </extension>  
+                            <extension url="value"> 
+                                <valueString value="application/fhir+json"/> 
+                            </extension> 
+                        </extension> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected update ok response HTTP Headers and body."/>  
+                <direction value="response"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="read"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Read the Patient in order to verify the updated contents."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>  
+                <direction value="response"/>  
+                <responseCode value="200"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned content format is JSON ('application/fhir+json')."/>  
+                <direction value="response"/>  
+                <contentType value="json"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Validate that the returned resource conforms to the corresponding FHIR resource profile."/>  
+                <direction value="response"/>  
+                <validateProfileId value="resource-profile"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step4-PatientHistoryInstance"> 
+        <name value="Step4-PatientHistoryInstance"/>  
+        <description value="Retrieve the updated Patient instance's history in JSON format. The expected response code is 200 (OK) with a Bundle resource in JSON format of type history containing the created and updated versions of the Patient."/>  
+        <action> 
+            <operation> 
+                <!-- <type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="history"/>
+				</type> -->  
+                <resource value="Patient"/>  
+                <description value="Retrieve the history for a single, known Patient."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}/_history"/>  
+                <!-- <targetId value="resource-update"/> --> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>  
+                <direction value="response"/>  
+                <responseCode value="200"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned content format is JSON ('application/fhir+json')."/>  
+                <direction value="response"/>  
+                <contentType value="json"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the response payload contains the Bundle resource type."/>  
+                <direction value="response"/>  
+                <resource value="Bundle"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Validate that the returned resource conforms to the corresponding FHIR bundle profile."/>  
+                <direction value="response"/>  
+                <validateProfileId value="bundle-profile"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the Bundle type is 'history'."/>  
+                <direction value="response"/>  
+                <operator value="equals"/>  
+                <path value=".type"/>  
+                <value value="history"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that there is more than one resource instance returned. There should be at least two from the create and update operations."/>  
+                <direction value="response"/>  
+                <expression value="Bundle.entry.count()"/>  
+                <operator value="greaterThan"/>  
+                <value value="1"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step5-PatientVersionRead"> 
+        <name value="Step5-PatientVersionRead"/>  
+        <description value="Retrieve a initially created version of a Patient instance in JSON format. The expected response code, if versioning is supported, is 200 (OK) with a content of the updated Patient resource in JSON format; if versioning is not supported, a 404 (Not Found) with an OperationOutcome resource in JSON format or an empty payload."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="vread"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Retrieve initially created version of the Patient instance."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}/_history/${createVersionId}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-vreadok-headers-body-if-versioning"/> 
+                    </extension>  
+                    <extension url="rule"> 
+                        <extension url="ruleId"> 
+                            <valueId value="assertContentTypeMimeTypeIfBody"/> 
+                        </extension>  
+                        <extension url="param"> 
+                            <extension url="name"> 
+                                <valueString value="headerExpectedValue"/> 
+                            </extension>  
+                            <extension url="value"> 
+                                <valueString value="application/fhir+json"/> 
+                            </extension> 
+                        </extension> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected vread ok response code, HTTP Headers and body."/>  
+                <direction value="response"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step6-PatientSearchType"> 
+        <name value="Step6-PatientSearchType"/>  
+        <description value="Search for Patient resources in JSON format with an identifier equal to ${searchParamIdentifier}. The expected response code is 200 (OK) with a Bundle resource in JSON format of type history containing the found instances of the Patient."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="search"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Search for the Patient by identifier."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="?identifier=${searchParamIdentifier}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>  
+                <direction value="response"/>  
+                <responseCode value="200"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned content format is JSON ('application/fhir+json')."/>  
+                <direction value="response"/>  
+                <contentType value="json"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the response payload contains the Bundle resource type."/>  
+                <direction value="response"/>  
+                <resource value="Bundle"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Validate that the returned resource conforms to the corresponding FHIR bundle profile."/>  
+                <direction value="response"/>  
+                <validateProfileId value="bundle-profile"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the Bundle type is 'searchset'."/>  
+                <direction value="response"/>  
+                <operator value="equals"/>  
+                <path value=".type"/>  
+                <value value="searchset"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that there is at least one record returned. There could be other Patient records returned."/>  
+                <direction value="response"/>  
+                <expression value="Bundle.entry.count()"/>  
+                <operator value="greaterThan"/>  
+                <value value="0"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test>  
+    <test id="Step7-PatientDelete"> 
+        <name value="Step7-PatientDelete"/>  
+        <description value="Delete a Patient instance in JSON format. The expected response is either a 200 (OK) with an optional OperationOutcome in JSON format or 204 (No Content) and the content is empty; i.e. no content."/>  
+        <action> 
+            <operation> 
+                <type> 
+                    <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>  
+                    <code value="delete"/> 
+                </type>  
+                <resource value="Patient"/>  
+                <description value="Delete the Patient instance."/>  
+                <accept value="json"/>  
+                <destination value="1"/>  
+                <encodeRequestUrl value="true"/>  
+                <origin value="1"/>  
+                <params value="/${createResourceId}"/> 
+            </operation> 
+        </action>  
+        <action> 
+            <assert> 
+                <description value="Confirm that the returned HTTP status is either 200(OK), 204(No Content) or 404(Not Found)."/>  
+                <direction value="response"/>  
+                <operator value="in"/>  
+                <responseCode value="200,204,404"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action>  
+        <action> 
+            <assert> 
+                <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset"> 
+                    <extension url="rulesetId"> 
+                        <valueId value="ruleset-deletevalid-headers-body"/> 
+                    </extension>  
+                    <extension url="rule"> 
+                        <extension url="ruleId"> 
+                            <valueId value="assertContentTypeMimeTypeIfBody"/> 
+                        </extension>  
+                        <extension url="param"> 
+                            <extension url="name"> 
+                                <valueString value="headerExpectedValue"/> 
+                            </extension>  
+                            <extension url="value"> 
+                                <valueString value="application/fhir+json"/> 
+                            </extension> 
+                        </extension> 
+                    </extension> 
+                </extension>  
+                <description value="Complex ruleset assertion to conditionally validate expected delete ok response HTTP Headers and body."/>  
+                <direction value="response"/>  
+                <warningOnly value="false"/> 
+            </assert> 
+        </action> 
+    </test> 
+</TestScript>

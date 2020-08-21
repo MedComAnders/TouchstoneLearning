@@ -8,7 +8,7 @@
     <text> 
         <status value="generated"/>  
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <p>FHIR Server Patient Basic Operation Tests - JSON - Client Assigned Resource Id</p>
+            <p>FHIR Servers Patient Basic Operation Tests - JSON - Client Assigned Resource Id</p>
         </div> 
     </text>  
     <extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset"> 
